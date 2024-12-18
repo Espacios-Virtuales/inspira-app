@@ -1,0 +1,24 @@
+.th-head {
+   background-color: #9608d3;
+   text-align: center;
+   color: white;
+}
+
+@media only screen and (max-width: 900px) {
+	.table-scrollable {
+      overflow-x: auto;
+      max-width: 600px;
+      box-shadow: inset 0 0 5px rgba(150, 150 ,150,0.35);
+      margin: auto;
+	}
+}
+
+.th-head-2 {
+      background-color: grey;
+      text-align: center;
+      color: white;
+      }
+
+.negrita{
+      font-weight: 900;
+}
