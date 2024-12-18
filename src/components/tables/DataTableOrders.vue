@@ -147,7 +147,7 @@
 
 <script>
 import * as $ from 'alga-js';
-import http from "@/http-common";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 import { computed } from "vue";
 import { useRoute } from "vue-router";

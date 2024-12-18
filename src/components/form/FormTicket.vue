@@ -254,8 +254,7 @@ import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { Form, Field, ErrorMessage, FieldArray} from "vee-validate";
 import * as yup from "yup";
-import http from "@/http-common";
-import http2 from "@/http-common2";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 import ticket from "../../model/ticket/Ticket.js";
 
@@ -323,7 +322,7 @@ export default {
             const res1 = await http.get('/products/list', { headers: authHeader() });
             products.value = res1.data.products;
 
-            const res2 = await http2.get('/provinces/show/24');
+            const res2 = await http.get('/provinces/show/24');
             province.value = res2.data.province;
 
             const res3 = await http.get('/ingredients/list-availability', { headers: authHeader() });

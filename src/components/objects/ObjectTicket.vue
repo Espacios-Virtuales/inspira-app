@@ -119,7 +119,7 @@
 <script>
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
-import http from "@/http-common";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 import ticket from "../../model/ticket/Ticket.js";
 

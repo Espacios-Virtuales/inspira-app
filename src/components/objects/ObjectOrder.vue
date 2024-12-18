@@ -100,7 +100,7 @@
 <script>
 import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
-import http from "@/http-common";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 import order from "../../model/order/Order.js";
 

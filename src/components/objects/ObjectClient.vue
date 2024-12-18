@@ -103,7 +103,7 @@
 <script>
 import { ref, computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import http from "@/http-common";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 import client from "../../model/client/Client.js";
 

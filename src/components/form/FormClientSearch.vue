@@ -37,7 +37,7 @@
 <script>
 import { Form, Field, ErrorMessage} from "vee-validate";
 import * as yup from "yup";
-import http from "@/http-common";
+import http from "@/utils/http-common.js";
 import authHeader from '@/services/auth-header';
 
 export default {
