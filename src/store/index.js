@@ -1,13 +1,16 @@
 import { createStore } from "vuex";
-import { auth } from "./auth.module.js";
-import { data } from "./data.module.js";
-import { dashboards } from "./dashboards.module.js";
+import { auth } from "./modules/auth.js";
+import { data } from "./modules/data.js";
+import { analytics } from "./modules/analytics.js";
+import { layout } from "./modules/layout.js";
+
 
 const store = createStore({
    modules: {
       auth,
       data,
-      dashboards
+      analytics, 
+      layout
    },
 });
 

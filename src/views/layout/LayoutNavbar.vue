@@ -1,31 +1,34 @@
 <template>
   <div class="navbar-component">
-    <div class="d-flex flex-column">
-      <div class="p-2 capa-3"><ComponentNav /></div>
-      <div class="p-2 my-4 nav-show" ><ComponentNavPhone /></div>
-      <div class="p-2 capa-3"><ComponentSidebar v-if="isShow"/></div>
+    <!-- Barra de anuncios -->
+    <ComponentAnnouncement />
+    <!-- Barra de navegación principal -->
+    <div class="p-2 capa-2">
+      <ComponentNav />
+    </div>
+    <!-- Sidebar -->
+    <div class="p-2 capa-3">
+      <ComponentSidebar v-if="isSidebarOpen" />
     </div>
   </div>
 </template>
 
 <script>
 import ComponentSidebar from "@/components/sidebars/ComponentSidebar.vue";
-import ComponentNav from '@/components/navs/ComponentNav.vue';
-import ComponentNavPhone from '@/components/navs/ComponentNavPhone.vue';
+import ComponentAnnouncement from "@/components/navs/ComponentAnnouncement.vue";
+import ComponentNav from "@/components/navs/ComponentNav.vue";
 
 export default {
   name: "LayoutNavbar",
-  data: function () {
-      return {
-        isShow: true,
-      };
+  computed: {
+    isSidebarOpen() {
+      return this.$store.getters["layout/isSidebarOpen"];
     },
+  },
   components: {
-    ComponentNav, ComponentNavPhone, ComponentSidebar
+    ComponentAnnouncement,
+    ComponentNav,
+    ComponentSidebar,
   },
 };
 </script>
-
-<style >
-@import "Navbar.css";
-</style>

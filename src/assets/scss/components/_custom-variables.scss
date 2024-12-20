@@ -14,7 +14,7 @@ $danger: #e63946; // Rojo vibrante para errores o estados críticos
 $gray: #6c757d; // Gris neutro para información secundaria
 
 // Colores de Fondo y Bordes
-$background: #f0f0f0; // Gris claro para fondos
+$light: #f0f0f0; // Gris claro para fondos
 $foreground: #ffffff; // Blanco para textos o elementos destacados
 $border: #d6d6d6; // Gris suave para bordes y divisores
 
@@ -50,7 +50,7 @@ $theme-colors: (
     "info": $info,                       // Azul neutro para información secundaria
     "highlight": $highlight,             // Naranja para indicadores importantes
     "emergency": $emergency,             // Gris oscuro para estados críticos alternativos
-    "background": $background,           // Gris claro para fondos
+    "light": $light,                     // Gris claro para fondos
     "foreground": $foreground,           // Blanco para textos o elementos destacados
     "border": $border,                   // Gris suave para bordes y divisores
     "text": $text,                       // Negro suave para textos principales

@@ -1,29 +1,26 @@
 import http from "../utils/http-common";
 
 class AuthService {
-   login(user) {
-      return http
-         .post('/login', {
-            email: user.email,
-            password: user.password
-         })
-         .then(response => {
-         if (response.data) {
-            localStorage.setItem('user', JSON.stringify(response.data));
-         }
-         console.log(response.data)
-         return response.data;
-         });
-   }
-   logout() {
-      localStorage.removeItem('user');
-   }
-   register(user) {
-      return http.post('/users', {
-         username: user.username,
-         email: user.email,
-         password: user.password
-      });
-   }
+  async login(credentials) {
+    try {
+      const response = await http.post("/auth/login", credentials);
+      if (response.data?.token) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+      return response.data;
+    } catch (error) {
+      console.error("Error during login:", error.response?.data);
+      throw error;
+    }
+  }
+
+  logout() {
+    localStorage.removeItem("user");
+  }
+
+  async register(user) {
+    return http.post("/auth/register", user);
+  }
 }
+
 export default new AuthService();

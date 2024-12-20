@@ -1,3 +1,21 @@
+/* Sidebar Transition */
+.sidebar-enter-active,
+.sidebar-leave-active {
+    transition:
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease-in-out;
+}
+
+.sidebar-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.sidebar-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
 /* Sidebar Wrapper */
 #sidebar-wrapper {
     position: fixed;
@@ -6,57 +24,170 @@
     height: 100vh;
     width: 250px;
     background-color: var(--bs-primary);
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
     z-index: 9999;
+    border-right: 2px solid var(--bs-secondary);
 
-    /* Mostrar sidebar cuando tenga la clase abierta */
-    &.sidebar-open {
-        transform: translateX(0);
+    /* Ajustes Responsive */
+    @media screen and (max-width: 768px) {
+        width: 200px;
+        padding: 1rem;
     }
 }
 
-/* Contenido del Sidebar */
-.sidebar-content {
-    padding: 0 1rem; /* Añadir padding horizontal interno */
-
+/* Sidebar Content */
+.sidebar__nav {
     .sidebar__list {
-        padding: 0; /* Eliminar cualquier padding sobrante */
-        margin: 0; /* Eliminar margen */
+        list-style: none;
+        padding: 0;
+        margin: 0;
 
         .sidebar__item {
-            list-style: none; /* Quitar las viñetas */
+            margin-bottom: 1rem;
 
             .nav-link {
                 display: flex;
                 align-items: center;
                 color: var(--bs-white);
-                margin: 1rem 0; /* Reducir el margen superior/inferior para evitar desbordes */
-                padding: 0.5rem 1rem; /* Espaciado interno del enlace */
+                padding: 0.5rem 1rem;
                 font-weight: 600;
                 font-size: 1rem;
                 text-decoration: none;
-                border-radius: 0.5rem; /* Bordes ligeramente redondeados */
+                border-radius: 0.5rem;
+                background-color: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
                 transition: all 0.3s ease;
 
                 &:hover {
-                    background-color: rgba(255, 255, 255, 0.1); /* Fondo translúcido al pasar el ratón */
-                    color: var(--bs-secondary); /* Color secundario al hover */
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra al pasar el ratón */
-                    transform: translateX(5px); /* Movimiento ligero hacia la derecha */
+                    color: var(--bs-selector);
+                    transform: translateX(5px);
+                    background-color: rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
                 }
 
                 i {
-                    margin-right: 1rem; /* Espacio entre el ícono y el texto */
+                    margin-right: 0.8rem;
+                    font-size: 1.2rem;
                     transition: transform 0.3s ease;
 
                     &:hover {
-                        transform: rotate(20deg);
+                        transform: rotate(15deg);
                     }
+                }
+
+                &.active {
+                    background-color: var(--bs-secondary);
+                    color: var(--bs-light);
+                    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.15);
+                }
+            }
+            /* Botones Interactivos */
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                font-weight: 600;
+                color: var(--bs-primary);
+                background-color: var(--bs-light);
+                border: 2px solid var(--bs-primary);
+                border-radius: 0.5rem;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background-color: var(--bs-primary);
+                    color: var(--bs-light);
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                }
+
+                i {
+                    margin-right: 0.5rem;
+                    font-size: 1.2rem;
                 }
             }
         }
     }
+}
+
+/* Botón de Cierre */
+.sidebar__close {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    .btn-close-sidebar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 2rem);
+        margin: 0 auto;
+        padding: 0.5rem 1rem;
+        background-color: var(--bs-danger);
+        color: var(--bs-light);
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--bs-light);
+            color: var(--bs-danger);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+/* Ajustes Responsive */
+@media screen and (max-width: 768px) {
+    #sidebar-wrapper {
+        width: 200px;
+    }
+
+    .sidebar__list .sidebar__item .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+        margin: 0.4rem 0;
+
+        i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+/* Transiciones del Sidebar */
+/* Sidebar Transition */
+.sidebar-enter-active,
+.sidebar-leave-active {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+.sidebar-enter {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.sidebar-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
 }

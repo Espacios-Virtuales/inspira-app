@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <LayoutNavbar></LayoutNavbar>
-    <div class="main-content capa-2 overflow-auto">
+    <div class="container-fluid">
       <router-view/>
     </div>
   </div>

@@ -1,60 +1,80 @@
 <template>
-   <nav class="navbar navbar-light sm-light">
-      <div class="navbar-nav" v-if="isLogin">
-         <ul class="nav justify-content-start">
-            <li class="nav-item mx-auto">
-               <router-link class="button-white button5" to="/">
-                  <i class="isDisabled text-dark">
-                     <font-awesome-icon icon="home" />
-                  </i>
-               </router-link>
+  <header id="masthead" class="site-header p-3 text-white">
+    <div class="container">
+      <div
+        class="d-flex flex-wrap align-items-center justify-content-between main-navigation"
+      >
+        <!-- Menú de Navegación -->
+        <nav
+          id="primary-menu"
+          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+        >
+          <ul class="nav-item">
+            <li>
+              <router-link to="/" class="nav-link px-2 rounded-icon">
+                <i class="bi bi-house"></i>
+              </router-link>
             </li>
-         </ul>
-      </div>
+            <li v-if="isLogin">
+              <router-link to="/perfil" class="nav-link px-2">
+                <i class="bi bi-person-circle"></i> Perfil
+              </router-link>
+            </li>
+          </ul>
+        </nav>
 
-      <div class="navbar-nav justify-content-end" v-if="isLogin">
-         <ul class="nav justify-content-end">
-            <li class="nav-item mx-auto">
-               <router-link class="button-purple button5" to="/perfil">
-                  <i class="isDisabled">
-                     <font-awesome-icon icon="user" />
-                  </i>
-               </router-link>
-            </li>
-            <li class="nav-item mx-auto">
-               <a class="button-red button5" @click.prevent="logOut">
-                  <font-awesome-icon icon="door-open" />
-               </a>
-            </li>
-         </ul>
+        <!-- Botones Responsive -->
+        <div class="responsive-icons d-flex d-lg-none">
+          <!-- Menú -->
+          <button
+            class="btn menu-toggle"
+            @click="toggleMenu"
+            aria-controls="primary-menu"
+            aria-expanded="false"
+            title="Toggle Menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+
+          <!-- Sidebar -->
+          <button
+            class="btn sidebar-toggle"
+            @click="toggleSidebar"
+            :aria-expanded="isSidebarOpen"
+          >
+            <i class="bi bi-hdd"></i>
+          </button>
+
+          <!-- Usuario -->
+          <router-link to="/perfil" class="btn user-icon ms-auto">
+            <i class="bi bi-person-circle"></i>
+          </router-link>
+        </div>
       </div>
-   </nav>
+    </div>
+  </header>
 </template>
 
 <script>
 export default {
-   name: "ComponentNav",
+  name: "ComponentNav",
 
-   data: function () {
-         return {
-         isShow: true,
-      };
-   },
-   
-   computed: {
-      isLogin () {
-         return this.$store.getters['auth/getLogin']
-      }
-   },
-   methods: {
-      logOut() {
-         this.$store.dispatch('auth/logout');
-         this.$router.push('/login');
-      },
-   }
-}
+  computed: {
+    isMenuOpen() {
+      return this.$store.getters["layout/isMenuOpen"];
+    },
+    isSidebarOpen() {
+      return this.$store.getters["layout/isSidebarOpen"];
+    },
+  },
+
+  methods: {
+    toggleMenu() {
+      this.$store.dispatch("layout/toggleMenu");
+    },
+    toggleSidebar() {
+      this.$store.dispatch("layout/toggleSidebar");
+    },
+  },
+};
 </script>
-
-<style>
-   @import "Nav.css";
-</style>

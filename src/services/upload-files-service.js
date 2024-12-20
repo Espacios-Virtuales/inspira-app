@@ -1,22 +1,23 @@
-import http from "@/utils/http-common.js";
+import http from "@/utils/http-common";
+import authHeader from "@/services/auth-header";
 
 class UploadFilesService {
-  
-    upload(id, file, onUploadProgress) {
-    let user = JSON.parse(localStorage.getItem('user'));
-    let formData = new FormData();
+  upload(productId, file, onUploadProgress) {
+    const formData = new FormData();
     formData.append("file", file);
-    return http.post("/uploads/products/copy/" + id, formData, {
+
+    return http.post(`/uploads/products/${productId}`, formData, {
       headers: {
-        "Authorization": 'Bearer ' + user.token,
+        ...authHeader(),
         "Content-Type": "multipart/form-data",
       },
-      onUploadProgress
+      onUploadProgress,
     });
   }
-  
-  getFiles(id) {
-    return http.get("/load/" + id);
+
+  getFiles(productId) {
+    return http.get(`/uploads/products/${productId}`, { headers: authHeader() });
   }
 }
+
 export default new UploadFilesService();

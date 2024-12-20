@@ -51,73 +51,14 @@
     width: 200px;
 }
 
-// Colores de fondo y fuentes
-.bg-purple-1 {
-    background-color: #9400d3;
-}
-
-.bg-orange-1 {
-    background-color: #ecb500;
-}
-
+// Colores de fondo y fuentes - Mensajes
 .font-color-info {
     color: #0999ec;
 }
 
-// Contenedores
-.main-content {
-    position: relative;
-    width: 100%;
-    height: 900px;
-    padding: 5px;
-    margin: 0 auto 0 auto;
+// Buttons
 
-    @media screen and (max-width: 1024px) {
-        margin-top: 10px;
-    }
-
-    @media screen and (min-width: 1024px) and (max-width: 1280px) {
-        margin-top: 70px;
-        margin-left: 140px;
-    }
-}
-
-.container-1 {
-    margin: 90px auto 80px 140px;
-    position: relative;
-    width: 100%;
-    padding: 5px;
-
-    @media screen and (max-width: 1024px) {
-        margin-bottom: 40px;
-        margin-left: none;
-    }
-
-    @media screen and (min-width: 1280px) {
-        margin-left: 180px;
-    }
-}
-
-.container-2 {
-    float: right;
-    width: auto;
-}
-
-.container-3 {
-    height: 150px;
-}
-
-// Botones
-.subcategories {
-    width: 100%;
-    margin-top: 10px;
-}
-
-.btn-primary {
-    background-color: rgb(157, 157, 157);
-}
-
-.btn:hover,
+.btn-primary:hover,
 .button-white:hover {
     background-color: #0999ec;
 }
