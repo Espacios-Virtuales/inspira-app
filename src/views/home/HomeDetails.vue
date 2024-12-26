@@ -3,7 +3,7 @@
       <div class="d-flex justify-content-start ">
          <div class="mx-auto">
             <img
-               :src="restaurante"
+               :src="ev"
                class="img-round-l" 
                alt=""
                />
@@ -24,7 +24,7 @@ export default {
    name: "HomeDetails",
    data () {
       return {
-         restaurante: require('@/assets/icons/food-delivery.png'),
+         ev: require('@/assets/icons/ev-icon.png'),
       }
    },
 

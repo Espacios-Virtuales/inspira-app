@@ -2,7 +2,7 @@
   <div class="container-1">
       <div class="col-sm-8 mx-auto py-4">        
         <div class="card text-center">
-          <div class="card-header"><h1>Las Delicias</h1></div>
+          <div class="card-header"><h1>Inspira</h1></div>
           <div class="card-body">
           <img
           id="profile-img"
@@ -71,7 +71,7 @@ export default {
       loading: false,
       message: "",
       schema,
-      userIcon: require('@/assets/icons/user.png'),
+      userIcon: require('@/assets/icons/ev-icon.png'),
     };
   },
   computed: {
