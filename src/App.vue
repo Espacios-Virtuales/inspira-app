@@ -4,16 +4,21 @@
     <div class="container-fluid">
       <router-view/>
     </div>
+    <ComponentFooter />
+
   </div>
 </template>
 
 <script>
 import LayoutNavbar from "./views/layout/LayoutNavbar.vue";
+import ComponentFooter from "@/components/footer/ComponentFooter.vue";
  
 export default {
   name: "App",
   components: {
     LayoutNavbar,
+    ComponentFooter
+
   },
  
  data(){
