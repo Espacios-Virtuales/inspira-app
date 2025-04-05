@@ -2,7 +2,6 @@
   <div class="container-1">
       <div class="col-sm-8 mx-auto py-4">        
         <div class="card text-center">
-          <div class="card-header"><h1>Inspira</h1></div>
           <div class="card-body">
           <img
           id="profile-img"
@@ -16,22 +15,23 @@
                   <Field type="email" name="email" class="form-control" placeholder="Email"/>
                 </div>
                 <div class="form-group col py-2 my-4">
-                  <ErrorMessage name="email" class="alert alert-primary my-4" />
+                  <ErrorMessage name="email" v-slot="{ message }">
+                    <div class="error-text">{{ message }}</div>
+                  </ErrorMessage>
                 </div>
                 <div class="form-group col py-2">
                   <Field type="password" name="password" class="form-control"
                     placeholder="Contraseña" />
                 </div>
                 <div class="form-group col py-2 my-4">
-                  <ErrorMessage name="password" class="alert alert-primary my-4" />
+                  <ErrorMessage name="password" v-slot="{ message }">
+                    <div class="error-text">{{ message }}</div>
+                  </ErrorMessage>                
                 </div>
                 <div class="form-group py-4">
                   <br>
-                  <button class="btn btn-lg btn-primary  btn-block" :disabled="loading">
-                    <span
-                      v-show="loading"
-                      class="spinner-border spinner-border-sm"
-                    ></span>
+                  <button class="btn btn-lg btn-primary btn-block mt-3" :disabled="loading">
+                    <span v-show="loading" class="spinner-border spinner-border-sm me-2"></span>
                     Ingresar
                   </button>
                 </div>

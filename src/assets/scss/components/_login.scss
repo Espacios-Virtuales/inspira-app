@@ -57,4 +57,55 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
     }
+
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        background-color: #fff;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .card-body {
+        padding: 2rem;
+      }
+      
+      .profile-img-card {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      .btn-primary {
+        border-radius: 50px;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        transition: background-color 0.3s ease-in-out;
+      
+        &:hover {
+          background-color: var(--bs-secondary);
+          color: #fff;
+        }
+      }
+      
+      .alert {
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 400;
+      }
+      
+      .input-group {
+        margin-bottom: 1rem;
+      }
+      
+      .error-text {
+        font-size: 0.85rem;
+        color: #6c757d;
+        font-style: italic;
+        margin-top: 0.25rem;
+      }
 }
