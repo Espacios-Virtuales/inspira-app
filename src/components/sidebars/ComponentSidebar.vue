@@ -1,6 +1,6 @@
 <template>
-   <transition name="sidebar">
-      <aside
+<transition name="sidebar-modern">
+   <aside
          v-if="isSidebarOpen"
          id="sidebar-wrapper"
       >

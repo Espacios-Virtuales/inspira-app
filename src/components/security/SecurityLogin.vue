@@ -71,7 +71,7 @@ export default {
       loading: false,
       message: "",
       schema,
-      userIcon: require('@/assets/icons/ev-icon.png'),
+      userIcon: require('@/assets/icons/ruta-del-codigo-logo.png'),
     };
   },
   computed: {
