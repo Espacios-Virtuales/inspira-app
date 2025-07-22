@@ -61,11 +61,13 @@ export const auth = {
         : false;
     },
     userRoles(state) {
-      return state.user?.user?.authorities || [];
+      return state.user?.role ? [state.user.role] : [];
     },
+    
     isAdmin(state, getters) {
       return getters.userRoles.includes("ROLE_ADMIN");
     },
+    
     isUser(state, getters) {
       return getters.userRoles.includes("ROLE_USER");
     },
@@ -76,18 +78,18 @@ export const auth = {
     },
   },
   mutations: {
-    [AUTH.LOGIN_SUCCESS](state, user) {
+    [AUTH.LOGIN_SUCCESS](state, payload) {
       state.status.loggedIn = true;
-      state.user = user;
+      state.user = {
+        username: payload.username,
+        token: payload.token,
+        role: payload.role,
+        message: payload.message,
+        tokenExpiration: Date.now() + 60 * 60 * 1000 // 1 hora
+      };
       state.error = null;
-
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          ...user,
-          tokenExpiration: Date.now() + 60 * 60 * 1000, // 1 hora
-        })
-      );
+    
+      localStorage.setItem("user", JSON.stringify(state.user));
     },
     [AUTH.AUTH_ERROR](state, error) {
       state.status.loggedIn = false;

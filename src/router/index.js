@@ -70,7 +70,20 @@ const routes = [
     path: '/client-details',
     name: 'ClientDetails',
     component: () => import('../views/clients/ClientDetails.vue')
-  }
+  },
+  /*
+  {
+    path: '/recursos',
+    component: () => import('@/views/RecursosView.vue')
+  },
+  {
+    path: '/proyectos',
+    component: () => import('@/views/ProyectosView.vue')
+  },
+  {
+    path: '/analitica',
+    component: () => import('@/views/AnaliticaView.vue')
+  },*/
 ]
 
 const router = createRouter({
