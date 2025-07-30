@@ -1,87 +1,69 @@
-# 🌟 Inspira App – Visión Estratégica
+# ✅ Checklist de Desarrollo – Inspira App
 
-**Versión**: 0.1  
-**Última actualización**: 2025-06-13  
-**Autor**: David Utreras  
-**Proyecto raíz**: Espacios Virtuales
-
----
-
-## 🎯 Propósito
-
-Inspira es la interfaz viva de **Espacios Virtuales**, diseñada para ofrecer una experiencia intuitiva, hermosa y funcional que facilite la conexión entre emprendedores conscientes, herramientas digitales y procesos formativos. Es más que un panel: es un puente entre la visión y la acción.
+**Versión:** 0.2  
+**Actualizado:** 2025-07-30  
+**Autor:** David Utreras   
+**Proyecto Independiente:** Inspira - Espacios Virtuales
 
 ---
 
-## 🌱 Rol de Inspira dentro del Ecosistema
+## 📘 Visión General
 
-| Módulo               | Función principal                                             |
-|----------------------|--------------------------------------------------------------|
-| `espacios-virtuales-api` | Fuente única de datos vía REST API                        |
-| `Inspira` (esta app)     | Interfaz para usuarios y administradores                   |
-| `Raíces`                 | Programa de formación y activación                        |
-| `Aura Digital`           | Herramienta futura para gestión de proyectos              |
+**Inspira App** es la interfaz modular del ecosistema **Espacios Virtuales**, diseñada para ser una experiencia estética, intuitiva y conectada a la acción consciente.
+
+Actúa como un canal donde se **visualiza el impacto regenerativo**, se accede a contenidos transformadores y se conecta con la comunidad en resonancia con la Tierra.
 
 ---
 
-## 🧠 Filosofía de Diseño
+## 📊 Fases y Sprints
 
-- **Modularidad:** Componentes reutilizables y claros.
-- **Belleza funcional:** Diseño SCSS con tonos inspirados en la naturaleza y la elegancia.
-- **Accesibilidad:** Interacción simplificada, sin sobrecarga cognitiva.
-- **Identidad visual viva:** Logo, colores y fuentes coherentes con la estética de Espacios Virtuales.
-
----
-
-## 👥 Tipos de Usuario
-
-| Rol         | Descripción                                             |
-|-------------|---------------------------------------------------------|
-| Usuario     | Emprendedor que accede a su perfil, datos y formación. |
-| Administrador | Facilitador que gestiona usuarios, módulos y analítica.|
-
----
-
-## 🔐 Seguridad & Accesos
-
-- Autenticación vía JWT
-- Roles definidos en backend
-- Vuex maneja sesión y permisos
-- Rutas protegidas dinámicamente por rol
+| Fase         | Sprint | Tarea                  | Descripción                                                  | Estado         |
+|--------------|--------|------------------------|--------------------------------------------------------------|----------------|
+| 🌱 Base      | 1.1    | 🎨 Refactor UI Layout   | Unificación de `Nav`, `Sidebar`, `Footer` con SCSS base      | ✅ Completado  |
+|              | 1.2    | 🔐 Login JWT            | Conexión con `espacios-virtuales-api`, validación con roles  | ✅ Completado  |
+|              | 1.3    | 🧠 Vuex Modular         | Módulos Vuex: `auth`, `layout`, `analytics`, `data`          | ✅ Completado  |
+|              | 1.4    | 🧭 Sidebar Interactivo  | Toggle con transición suave y cierre programático            | ✅ Completado  |
+|              | 1.5    | 📦 Estructura limpia    | Limpieza de componentes, backup de legacy                    | ✅ Completado  |
+|              | 1.6    | 💡 Footer institucional | `ComponentFooter` con branding armonizado en SCSS            | 🟡 En progreso |
+| 🌿 Expansión | 2.1    | 📊 Dashboard por rol    | `admin/analitica`, `user/perfil` con datos dinámicos         | 🔲 Pendiente   |
+|              | 2.2    | 📤 Subida de archivos   | Integración con `upload-files-service`                       | 🔲 Pendiente   |
+|              | 2.3    | 🔔 Notificaciones UI    | Mensajes del sistema con estilo intuitivo                    | 🔲 Pendiente   |
+|              | 2.4    | 📄 Página pública       | Página inicial accesible a no autenticados                   | 🔲 Pendiente   |
 
 ---
 
-## 🧭 Flujo General
+## 📂 Estructura Modular
 
 ```
-Inicio (Login)
-  └── Validación → Dashboard
-       ├── Si es ADMIN → Panel de control (gestión de usuarios, analítica)
-       └── Si es USER → Panel personal (perfil, progreso, módulos)
+inspira-app/
+├── assets/
+│   └── icons/
+├── components/
+│   ├── navs/
+│   ├── sidebars/
+│   └── footers/
+├── services/
+│   └── auth, analytics, upload
+├── store/
+│   └── modules/ → auth, layout, analytics, data
+├── views/
+│   ├── login, perfil, admin/
+├── App.vue, main.js
 ```
 
 ---
 
-## 📐 Componentes Clave
+## 🎨 Estética & UX
 
-- `ComponentNav` → Navegación superior (responsiva)
-- `ComponentSidebar` → Acceso a secciones clave por rol
-- `ComponentFooter` → Firma visual de Espacios Virtuales
-- `ComponentAnnouncement` → Barra de bienvenida y toggles
-- `views/` → Vistas por rol y propósito
-
----
-
-## 🔮 Futuro: Extensiones
-
-- Integración con Liora (asistente virtual GPT)
-- Soporte de archivos, descargas y progresos personalizados
-- Dashboard analítico para admins
-- Notificaciones en tiempo real
-- Aura Digital: conexión con herramientas como Odoo y Payload
+- SCSS modular con identidad visual natural y armónica.
+- Animaciones suaves y responsividad.
+- Íconos: Bootstrap Icons + FontAwesome.
+- Colores variables CSS (`--bs-primary`, `--bs-secondary`, `--bs-selector`).
 
 ---
 
-## 📎 Notas finales
+## 🧭 Seguimiento
 
-Este documento guía el desarrollo no solo técnico, sino también **espiritual y visual** de Inspira, alineado con los valores del proyecto madre. Debe actualizarse conforme evolucione la plataforma.
+Este archivo evoluciona junto con la visión regenerativa del ecosistema.
+
+> 🌿 *Inspira no es solo una interfaz, es una experiencia que honra la Tierra con cada línea de código.*

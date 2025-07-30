@@ -5,7 +5,7 @@
             <ul class="sidebar__list">
                <!-- Inicio -->
                <li class="sidebar__item">
-                  <router-link to="/inicio" class="nav-link">
+                  <router-link to="/" class="nav-link">
                      <i class="bi bi-house-door-fill"></i> Inicio
                   </router-link>
                </li>
